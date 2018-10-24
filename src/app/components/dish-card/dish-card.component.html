@@ -1,0 +1,26 @@
+<mat-card class="example-card">
+    <div *ngIf="hasOwner">
+        <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>{{nombre}}</mat-card-title>
+            <mat-card-subtitle>{{sucursal}}</mat-card-subtitle>
+        </mat-card-header>
+    </div>
+    <img src="assets/img/sopa.jpg" alt="image">
+    <mat-card-content>
+        <h3>{{nombrePlatillo}}</h3>
+        <p>
+            {{descripcionPlatillo}}
+        </p>
+        <span *ngFor="let com of comentariosLista">*mi comentario: {{com}} <br></span>
+        <mat-form-field class="example-full-width">
+            <input type="text" matInput placeholder="Comentario" [(ngModel)]="comentario" (keydown)="pressEnter($event)">
+        </mat-form-field>
+
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-button (click)="agregar()">AGREGAR</button>
+        <button mat-button (click)="compartir()">COMPARTIR</button>
+        <button mat-button routerLink="/receta">VER</button>
+    </mat-card-actions>
+</mat-card>
